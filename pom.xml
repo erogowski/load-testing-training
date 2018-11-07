@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.github.erogowski</groupId>
+    <artifactId>load-testing-training</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.lazerycode.jmeter</groupId>
+                <artifactId>jmeter-maven-plugin</artifactId>
+                <version>2.8.0</version>
+                <executions>
+                    <execution>
+                        <id>jmeter-tests</id>
+                        <goals>
+                            <goal>jmeter</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>jmeter-check-results</id>
+                        <goals>
+                            <goal>results</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <jmeterVersion>5.0</jmeterVersion>
+                    <testFilesIncluded>
+                        <jMeterTestFile>${testScriptName}</jMeterTestFile>
+                    </testFilesIncluded>
+                    <resultsFileFormat>csv</resultsFileFormat>
+                    <propertiesJMeter>
+                        <log_level.jmeter>DEBUG</log_level.jmeter>
+                    </propertiesJMeter>
+                    <propertiesUser>
+                        <protocol>${protocol}</protocol>
+                        <environment>${environment}</environment>
+                        <auth_token>${auth_token}</auth_token>
+                        <users>${users}</users>
+                        <rampUpTime>${rampUpTime}</rampUpTime>
+                        <loops>${loops}</loops>
+                    </propertiesUser>
+                    <generateReports>true</generateReports>
+                    <jMeterProcessJVMSettings>
+                        <xms>512</xms>
+                        <xmx>512</xmx>
+                    </jMeterProcessJVMSettings>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
