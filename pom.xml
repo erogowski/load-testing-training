@@ -44,6 +44,8 @@
                         <users>${users}</users>
                         <rampUpTime>${rampUpTime}</rampUpTime>
                         <loops>${loops}</loops>
+                        <!--only for pet_upload_image_test.jmx-->
+                        <fileSizeInMbs>${fileSizeInMbs}</fileSizeInMbs>
                     </propertiesUser>
                     <generateReports>true</generateReports>
                     <jMeterProcessJVMSettings>

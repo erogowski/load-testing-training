@@ -7,9 +7,11 @@ Used tools:
 
 Use maven command to execute the tests and generate a test result report:
 mvn clean verify
+-DtestScriptName=pet_crud_test.jmx
 -Dprotocol=https
 -Devironment=petstore.swagger.io
 -Dauth_token=1234567890
 -Dusers=1
 -DrampUpTime=1
 -Dloops=1
+-DfileSizeInMbs=0.5
